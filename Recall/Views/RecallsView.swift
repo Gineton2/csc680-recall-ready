@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RecallsView.swift
 //  Recall
 //
 //  Created by BOBBY ROOTS on 12/20/22.
@@ -15,9 +15,9 @@ struct Result:Codable {
     var recall_number: String
     var reason_for_recall: String
     var product_description: String
-    
 }
-struct ContentView: View {
+
+struct RecallsView: View {
     @State private var results = [Result]()
     var body: some View {
         List(results, id: \.recall_number) { item in
@@ -52,6 +52,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RecallsView()
     }
 }

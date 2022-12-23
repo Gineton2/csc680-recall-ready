@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		45866F8D2951ACB500584D53 /* RecallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45866F8C2951ACB500584D53 /* RecallApp.swift */; };
-		45866F8F2951ACB500584D53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45866F8E2951ACB500584D53 /* ContentView.swift */; };
+		45866F8F2951ACB500584D53 /* RecallsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45866F8E2951ACB500584D53 /* RecallsView.swift */; };
 		45866F912951ACBC00584D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45866F902951ACBC00584D53 /* Assets.xcassets */; };
 		45866F942951ACBC00584D53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45866F932951ACBC00584D53 /* Preview Assets.xcassets */; };
+		C3AE89AD295565DB00950AF5 /* RecallsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89AC295565DB00950AF5 /* RecallsModel.swift */; };
+		C3AE89B1295568FB00950AF5 /* RecallDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89B0295568FB00950AF5 /* RecallDetailView.swift */; };
+		C3AE89B32955696000950AF5 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89B22955696000950AF5 /* FirstView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45866F892951ACB500584D53 /* Recall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45866F8C2951ACB500584D53 /* RecallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallApp.swift; sourceTree = "<group>"; };
-		45866F8E2951ACB500584D53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		45866F8E2951ACB500584D53 /* RecallsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallsView.swift; sourceTree = "<group>"; };
 		45866F902951ACBC00584D53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45866F932951ACBC00584D53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C3AE89AC295565DB00950AF5 /* RecallsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallsModel.swift; sourceTree = "<group>"; };
+		C3AE89B0295568FB00950AF5 /* RecallDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecallDetailView.swift; sourceTree = "<group>"; };
+		C3AE89B22955696000950AF5 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +41,11 @@
 		45866F802951ACB500584D53 = {
 			isa = PBXGroup;
 			children = (
-				45866F8B2951ACB500584D53 /* Recall */,
+				45866F902951ACBC00584D53 /* Assets.xcassets */,
+				45866F922951ACBC00584D53 /* Preview Content */,
+				45866F8C2951ACB500584D53 /* RecallApp.swift */,
+				C3AE89B42955697700950AF5 /* Views */,
+				45866F8B2951ACB500584D53 /* Models */,
 				45866F8A2951ACB500584D53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,15 +58,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45866F8B2951ACB500584D53 /* Recall */ = {
+		45866F8B2951ACB500584D53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				45866F8C2951ACB500584D53 /* RecallApp.swift */,
-				45866F8E2951ACB500584D53 /* ContentView.swift */,
-				45866F902951ACBC00584D53 /* Assets.xcassets */,
-				45866F922951ACBC00584D53 /* Preview Content */,
+				C3AE89AC295565DB00950AF5 /* RecallsModel.swift */,
 			);
-			path = Recall;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		45866F922951ACBC00584D53 /* Preview Content */ = {
@@ -65,6 +72,16 @@
 				45866F932951ACBC00584D53 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C3AE89B42955697700950AF5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3AE89B22955696000950AF5 /* FirstView.swift */,
+				45866F8E2951ACB500584D53 /* RecallsView.swift */,
+				C3AE89B0295568FB00950AF5 /* RecallDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45866F8F2951ACB500584D53 /* ContentView.swift in Sources */,
+				45866F8F2951ACB500584D53 /* RecallsView.swift in Sources */,
+				C3AE89B32955696000950AF5 /* FirstView.swift in Sources */,
+				C3AE89AD295565DB00950AF5 /* RecallsModel.swift in Sources */,
+				C3AE89B1295568FB00950AF5 /* RecallDetailView.swift in Sources */,
 				45866F8D2951ACB500584D53 /* RecallApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +286,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Recall/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -294,7 +314,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Recall/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
