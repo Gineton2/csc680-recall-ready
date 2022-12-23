@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct RecallDetailView: View {
+struct ProductDetailView: View {
     var body: some View {
-        Text("Recall Details")
+        Text("Product Details")
     }
 }
 
 struct RecallDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RecallDetailView()
+        ProductDetailView()
     }
 }

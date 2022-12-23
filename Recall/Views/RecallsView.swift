@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecallsView: View {
-    @State private var results = [Result]()
+    @State private var results = [Product]()
     var body: some View {
         List(results, id: \.recall_number) { item in
             VStack(alignment: .leading, spacing: 20) {

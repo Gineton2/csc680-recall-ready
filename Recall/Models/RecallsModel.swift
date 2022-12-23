@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct Response: Codable {
-    var results: [Result]
+    var results: [Product]
 }
 
-struct Result:Codable {
+struct Product:Codable {
     var recall_number: String
     var reason_for_recall: String
     var product_description: String
