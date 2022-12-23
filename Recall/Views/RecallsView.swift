@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-struct Response: Codable {
-    var results: [Result]
-}
-
-struct Result:Codable {
-    var recall_number: String
-    var reason_for_recall: String
-    var product_description: String
-}
-
 struct RecallsView: View {
     @State private var results = [Result]()
     var body: some View {
