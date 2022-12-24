@@ -15,15 +15,19 @@ struct FirstView: View {
     
     var body: some View {
         VStack {
+            Image("Logo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 300, height: 300, alignment: .center)
+            
             Text("Recall Ready")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .padding(.bottom, 10)
-            
-            Text("\tRecall Ready provides up-to-date information on food recall announcements by the FDA in a user's region. \r\tStay informed! Help keep you and your family safe from foodborne illness and other health risks.")
+                            
+            Text("\tRecall Ready provides up-to-date information on FDA food recalls in your region. \r\tStay informed! Keep you and your family safe from foodborne illness and other health risks.")
                 .font(.callout)
-                .italic()
-                .padding(50)
+                .padding([.trailing, .bottom, .leading], 40)
+                .padding(.top, 5)
             
             LocationButton(.currentLocation){
             }
