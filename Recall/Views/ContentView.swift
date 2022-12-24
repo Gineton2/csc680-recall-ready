@@ -1,14 +1,23 @@
+
 //
-//  RecallsView.swift
+//  ContentView.swift
 //  Recall
 //
 //  Created by BOBBY ROOTS on 12/20/22.
 //
-
 import SwiftUI
+struct Response: Codable {
+    var results: [Result]
+}
 
-struct RecallsView: View {
-    @State private var results = [Product]()
+struct Result:Codable {
+    var recall_number: String
+    var reason_for_recall: String
+    var product_description: String
+    
+}
+struct ContentView: View {
+    @State private var results = [Result]()
     var body: some View {
         List(results, id: \.recall_number) { item in
             VStack(alignment: .leading, spacing: 20) {
@@ -39,9 +48,8 @@ struct RecallsView: View {
         
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RecallsView()
+        ContentView()
     }
 }

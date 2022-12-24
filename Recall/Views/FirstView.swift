@@ -4,15 +4,19 @@
 //
 //  Created by Gineton Alencar II on 12/22/22.
 //
+//  Resources:
+//  https://developer.apple.com/documentation/corelocationui/cllocationbutton
 
 import SwiftUI
 import CoreLocationUI
+import CoreLocation
 
 // This is the first view that the user will see.
 // Show app Title "Recall Ready" and a button to get user location.
 struct FirstView: View {
-    @StateObject var locationService = LocationService()
-    
+    @EnvironmentObject var locationService : LocationService
+    @State var locationState: String = ""
+
     var body: some View {
         VStack {
             Image("Logo")
@@ -30,10 +34,10 @@ struct FirstView: View {
                 .padding(.top, 5)
             
             LocationButton(.currentLocation){
-            }
-            .symbolVariant(.fill)
-            .labelStyle(.titleAndIcon)
-            .cornerRadius(25.0)
+                }
+                .symbolVariant(.fill)
+                .labelStyle(.titleAndIcon)
+                .cornerRadius(25.0)
         }
     }
 }

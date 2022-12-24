@@ -11,8 +11,7 @@ import SwiftUI
 struct RecallApp: App {
     var body: some Scene {
         WindowGroup {
-            FirstView()
-            //RecallsView()
+            ContentView()
         }
     }
 }
