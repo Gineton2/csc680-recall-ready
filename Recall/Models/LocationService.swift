@@ -32,12 +32,16 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last
+    }
+    
+    func startGeocoding() {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location!) { (placemarks, error) in
             if error == nil {
                 let firstLocation = placemarks?[0]
                 self.locationState = firstLocation?.administrativeArea ?? ""
             }
+            print(self.locationState)
         }
     }
 }
