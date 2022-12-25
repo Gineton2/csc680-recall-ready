@@ -10,39 +10,39 @@
 
 import Foundation
 import SwiftUI
-//
-//struct Response: Decodable {
-//    var results: [Product]
-//}
-//
-//struct Product:Codable {
-//    var status: String
-//    
-//    // location properties
-//    // TODO: maybe implement as var location: ProductLocation?
-//    var city: String
-//    var state: String
-//    var country: String
-//    var address_1: String
-//    var address_2: String
-//    var postal_code: String
-//    var distribution_pattern: String
-//    
-//    var classification: String
-//    var product_type: String
-//    var event_id: Int
-//    var recalling_firm: String
-//    var voluntary_mandated: String
-//    var recall_number: String
-//    var product_description: String
-//    var product_quantity: String
-//    var reason_for_recall: String
-//    
-//    //dates
-//    var recall_initiation_date: Date
-//    var center_classification_date: Date
-//    var report_date: Date
-//}
+
+struct Response: Codable {
+    var results: [Product]
+}
+
+struct Product:Codable {
+    var status: String
+    
+    // location properties
+    // TODO: maybe implement as var location: ProductLocation?
+    var city: String
+    var state: String
+    var country: String
+    var address_1: String
+    var address_2: String
+    var postal_code: String
+    var distribution_pattern: String
+    
+    var classification: String
+    var product_type: String
+    var event_id: String
+    var recalling_firm: String
+    var voluntary_mandated: String
+    var recall_number: String
+    var product_description: String
+    var product_quantity: String
+    var reason_for_recall: String
+    
+    //TODO: dates of Date type
+    var recall_initiation_date: String
+    var center_classification_date: String
+    var report_date: String
+}
 
 //extension Product {
 //    static var preview: Product {

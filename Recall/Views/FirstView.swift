@@ -15,9 +15,10 @@ import CoreLocation
 // Show app Title "Recall Ready" and a button to get user location.
 struct FirstView: View {
     @EnvironmentObject var locationService : LocationService
-    //@State var locationState: String = ""
-
+    @State private var showProducts = false
+    
     var body: some View {
+        NavigationView() {
         VStack {
             Image("Logo")
                 .resizable()
@@ -27,23 +28,26 @@ struct FirstView: View {
             Text("Recall Ready")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                            
+            
             Text("\tRecall Ready provides up-to-date information on FDA food recalls in your region. \r\tStay informed! Keep you and your family safe from foodborne illness and other health risks.")
                 .font(.callout)
                 .padding([.trailing, .bottom, .leading], 40)
                 .padding(.top, 5)
-            
-            LocationButton(.currentLocation){
-                self.locationService.startGeocoding()
                 
+                NavigationLink(destination: Products(), isActive: $showProducts) {
+                    LocationButton(.currentLocation){
+                        self.locationService.startGeocoding()
+                        self.showProducts = true
+                    }
+                    .symbolVariant(.fill)
+                    .labelStyle(.titleAndIcon)
+                    .cornerRadius(25.0)
+                    .foregroundColor(Color.white)
                 }
-                .symbolVariant(.fill)
-                .labelStyle(.titleAndIcon)
-                .cornerRadius(25.0)
+            }
         }
     }
 }
-
 struct FirstView_Previews: PreviewProvider {
     static var previews: some View {
         FirstView()
