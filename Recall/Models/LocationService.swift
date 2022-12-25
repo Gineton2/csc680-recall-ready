@@ -34,15 +34,20 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
         location = locations.last
     }
     
-    func startGeocoding() {
-        guard let location = location else {return}
+    func startGeocoding(completion: @escaping (Bool) -> Void) {
+        guard let location = location else {
+            completion(false)
+            return
+        }
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
             if error == nil {
                 let firstLocation = placemarks?[0]
                 self.locationState = firstLocation?.administrativeArea ?? ""
+                completion(true)
+            } else {
+                completion(false)
             }
-            print(self.locationState)
         }
     }
 }

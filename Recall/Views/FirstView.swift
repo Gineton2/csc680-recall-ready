@@ -19,31 +19,30 @@ struct FirstView: View {
     
     var body: some View {
         NavigationView() {
-        VStack {
-            Image("Logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 300, height: 300, alignment: .center)
-            
-            Text("Recall Ready")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            Text("\tRecall Ready provides up-to-date information on FDA food recalls in your region. \r\tStay informed! Keep you and your family safe from foodborne illness and other health risks.")
-                .font(.callout)
-                .padding([.trailing, .bottom, .leading], 40)
-                .padding(.top, 5)
+            VStack {
+                Image("Logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 300, alignment: .center)
                 
-                NavigationLink(destination: Products(), isActive: $showProducts) {
+                Text("Recall Ready")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                
+                Text("\tRecall Ready provides up-to-date information on FDA food recalls in your region. \r\tStay informed! Keep you and your family safe from foodborne illness and other health risks.")
+                    .font(.callout)
+                    .padding([.trailing, .bottom, .leading], 40)
+                    .padding(.top, 5)
+                
+                
+                NavigationLink(destination: Products().environmentObject(locationService), isActive: $showProducts) {
                     LocationButton(.currentLocation){
-                        self.locationService.startGeocoding()
-                        self.showProducts = true
                     }
-                    .symbolVariant(.fill)
-                    .labelStyle(.titleAndIcon)
-                    .cornerRadius(25.0)
-                    .foregroundColor(Color.white)
                 }
+                .symbolVariant(.fill)
+                .labelStyle(.titleAndIcon)
+                .cornerRadius(25.0)
+                .foregroundColor(Color.white)
             }
         }
     }
