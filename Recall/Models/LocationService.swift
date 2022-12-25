@@ -35,8 +35,9 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func startGeocoding() {
+        guard let location = location else {return}
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location!) { (placemarks, error) in
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
             if error == nil {
                 let firstLocation = placemarks?[0]
                 self.locationState = firstLocation?.administrativeArea ?? ""

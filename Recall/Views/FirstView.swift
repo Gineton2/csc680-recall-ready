@@ -15,7 +15,7 @@ import CoreLocation
 // Show app Title "Recall Ready" and a button to get user location.
 struct FirstView: View {
     @EnvironmentObject var locationService : LocationService
-//    @State var locationState: String = ""
+    //@State var locationState: String = ""
 
     var body: some View {
         VStack {
@@ -34,7 +34,7 @@ struct FirstView: View {
                 .padding(.top, 5)
             
             LocationButton(.currentLocation){
-                    self.locationService.startGeocoding()
+                self.locationService.startGeocoding()
                 }
                 .symbolVariant(.fill)
                 .labelStyle(.titleAndIcon)
@@ -46,5 +46,6 @@ struct FirstView: View {
 struct FirstView_Previews: PreviewProvider {
     static var previews: some View {
         FirstView()
+            .environmentObject(LocationService())
     }
 }
