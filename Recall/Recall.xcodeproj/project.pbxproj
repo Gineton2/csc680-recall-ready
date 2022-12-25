@@ -18,6 +18,12 @@
 		C3AE89BC2956D07000950AF5 /* DataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89BB2956D07000950AF5 /* DataDownloader.swift */; };
 		C3AE89BE2956F79B00950AF5 /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89BD2956F79B00950AF5 /* ProductRow.swift */; };
 		C3AE89C029570D8A00950AF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89BF29570D8A00950AF5 /* ContentView.swift */; };
+		C3AE89C92958488D00950AF5 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3AE89C82958488D00950AF5 /* LICENSE.txt */; };
+		C3AE89CB295848AA00950AF5 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89CA295848AA00950AF5 /* HTTPDataDownloader.swift */; };
+		C3AE89CD2958491900950AF5 /* RecallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89CC2958491900950AF5 /* RecallError.swift */; };
+		C3AE89CF295849C200950AF5 /* RecallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89CE295849C200950AF5 /* RecallService.swift */; };
+		C3AE89D129584A4700950AF5 /* NSCache+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89D029584A4600950AF5 /* NSCache+Subscript.swift */; };
+		C3AE89D329584A6400950AF5 /* CacheEntryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE89D229584A6400950AF5 /* CacheEntryObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		C3AE89BD2956F79B00950AF5 /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 		C3AE89BF29570D8A00950AF5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C3AE89C529582E9300950AF5 /* Recall-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Recall-Info.plist"; sourceTree = "<group>"; };
+		C3AE89C82958488D00950AF5 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		C3AE89CA295848AA00950AF5 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
+		C3AE89CC2958491900950AF5 /* RecallError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecallError.swift; sourceTree = "<group>"; };
+		C3AE89CE295849C200950AF5 /* RecallService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecallService.swift; sourceTree = "<group>"; };
+		C3AE89D029584A4600950AF5 /* NSCache+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCache+Subscript.swift"; sourceTree = "<group>"; };
+		C3AE89D229584A6400950AF5 /* CacheEntryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheEntryObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +86,12 @@
 				C3AE89AC295565DB00950AF5 /* Product.swift */,
 				C3AE89B72956A79800950AF5 /* LocationService.swift */,
 				C3AE89BB2956D07000950AF5 /* DataDownloader.swift */,
+				C3AE89C82958488D00950AF5 /* LICENSE.txt */,
+				C3AE89CA295848AA00950AF5 /* HTTPDataDownloader.swift */,
+				C3AE89CC2958491900950AF5 /* RecallError.swift */,
+				C3AE89CE295849C200950AF5 /* RecallService.swift */,
+				C3AE89D029584A4600950AF5 /* NSCache+Subscript.swift */,
+				C3AE89D229584A6400950AF5 /* CacheEntryObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AE89C92958488D00950AF5 /* LICENSE.txt in Resources */,
 				45866F942951ACBC00584D53 /* Preview Assets.xcassets in Resources */,
 				45866F912951ACBC00584D53 /* Assets.xcassets in Resources */,
 			);
@@ -168,14 +187,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AE89D329584A6400950AF5 /* CacheEntryObject.swift in Sources */,
+				C3AE89CD2958491900950AF5 /* RecallError.swift in Sources */,
 				C3AE89BC2956D07000950AF5 /* DataDownloader.swift in Sources */,
 				45866F8F2951ACB500584D53 /* Products.swift in Sources */,
 				C3AE89B32955696000950AF5 /* FirstView.swift in Sources */,
 				C3AE89AD295565DB00950AF5 /* Product.swift in Sources */,
+				C3AE89CB295848AA00950AF5 /* HTTPDataDownloader.swift in Sources */,
 				C3AE89B1295568FB00950AF5 /* ProductDetails.swift in Sources */,
 				C3AE89B82956A79800950AF5 /* LocationService.swift in Sources */,
 				45866F8D2951ACB500584D53 /* RecallApp.swift in Sources */,
+				C3AE89D129584A4700950AF5 /* NSCache+Subscript.swift in Sources */,
 				C3AE89BE2956F79B00950AF5 /* ProductRow.swift in Sources */,
+				C3AE89CF295849C200950AF5 /* RecallService.swift in Sources */,
 				C3AE89C029570D8A00950AF5 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
