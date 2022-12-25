@@ -35,6 +35,7 @@ struct FirstView: View {
             
             LocationButton(.currentLocation){
                 self.locationService.startGeocoding()
+                
                 }
                 .symbolVariant(.fill)
                 .labelStyle(.titleAndIcon)

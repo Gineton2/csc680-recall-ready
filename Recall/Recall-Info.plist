@@ -2,7 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenNotInUseUsageDescription</key>
-	<string>&quot;Your location allows the Recall Ready to show the most relevant product recalls.&quot;</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>&quot;Ready Recall uses location data to provide the most relevant public data.&quot;</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>
