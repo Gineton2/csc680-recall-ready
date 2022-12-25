@@ -12,8 +12,9 @@ struct RecallApp: App {
     @StateObject var locationService = LocationService()
     var body: some Scene {
         WindowGroup {
-            FirstView()
-                .environmentObject(locationService)
+//            FirstView()
+//                .environmentObject(locationService)
+            ContentView()
         }
     }
 }
