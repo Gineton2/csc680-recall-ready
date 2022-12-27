@@ -15,9 +15,12 @@ struct Products: View {
     var body: some View {
         List(products, id: \.recall_number) { product in
             VStack(alignment: .leading, spacing: 20) {
-                Text(product.product_description)
+                Text("Product: " + product.product_description.prefix(60) + "...")
                     .font(.headline)
-                Text(product.reason_for_recall)
+                Text("City: " + product.city)
+//                Text(product.product_description)
+//                    .font(.headline)
+//                Text(product.reason_for_recall)
             }
         }
         .task {
@@ -25,8 +28,6 @@ struct Products: View {
         }
     }
     func loadData() async {
-        // use locationState in API Request
-        self.locationService.startGeocoding {_ in }
         let state = locationService.locationState
         guard let url = URL(string: "https://api.fda.gov/food/enforcement.json?search=state:\(state)+AND+status:ongoing&limit=10&sort=report_date:dec") else
         {
@@ -34,6 +35,7 @@ struct Products: View {
             return
         }
         do {
+            // use locationState in API Request
             let (data, _) = try await URLSession.shared.data(from: url)
             if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
                 products = decodedResponse.results

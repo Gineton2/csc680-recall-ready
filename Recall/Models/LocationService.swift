@@ -20,7 +20,8 @@ import CoreLocation
 class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     @Published var location: CLLocation?
-    @Published var locationState: String = ""
+    // default state is CA
+    @Published var locationState: String = "" //"CA"
     
     override init() {
         super.init()
@@ -50,4 +51,7 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
         }
     }
+//    func getGeocode() -> self.locationState {
+//        
+//    }
 }

@@ -14,11 +14,11 @@ import CoreLocation
 // This is the first view that the user will see.
 // Show app Title "Recall Ready" and a button to get user location.
 struct FirstView: View {
-    @EnvironmentObject var locationService : LocationService
+    @StateObject var locationService = LocationService()
     @State private var showProducts = false
     
     var body: some View {
-        NavigationView() {
+        NavigationStack() {
             VStack {
                 Image("Logo")
                     .resizable()
@@ -35,14 +35,20 @@ struct FirstView: View {
                     .padding(.top, 5)
                 
                 
-                NavigationLink(destination: Products().environmentObject(locationService), isActive: $showProducts) {
-                    LocationButton(.currentLocation){
+//                NavigationLink(isActive: $showProducts, destination: Products().environmentObject(locationService)) {
+                LocationButton(.currentLocation){
+                    self.locationService.startGeocoding { _ in
+                        showProducts = true
                     }
                 }
+//                }
                 .symbolVariant(.fill)
                 .labelStyle(.titleAndIcon)
                 .cornerRadius(25.0)
                 .foregroundColor(Color.white)
+                .navigationDestination(isPresented: $showProducts){
+                    Products().environmentObject(locationService)
+                }
             }
         }
     }
