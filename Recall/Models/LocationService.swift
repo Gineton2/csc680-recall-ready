@@ -10,6 +10,7 @@
 //  References:
 //  https://www.hackingwithswift.com/quick-start/swiftui/how-to-read-the-users-location-using-locationbutton
 //  https://developer.apple.com/documentation/corelocationui/sharing_your_location_to_find_a_park
+// https://cocoacasts.com/reverse-geocoding-with-clgeocoder
 
 import CoreLocation
 
@@ -18,26 +19,30 @@ import CoreLocation
 //  This will be sent to the FDA API to get relevant data.
 
 class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     @Published var location: CLLocation?
-    // default state is CA
-    @Published var locationState: String = "" //"CA"
+    @Published var locationState: String = "" //"CA" for testing
     
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        // Maybe unnecessary:
+        //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //        locationManager.requestWhenInUseAuthorization()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last
     }
     
-    func startGeocoding(completion: @escaping (Bool) -> Void) {
+    func requestLocation() {
+        locationManager.requestLocation()
+    }
+    
+    func startGeocoding() { // completion handler was not working
         guard let location = location else {
-            completion(false)
+//            completion(false)
             return
         }
         let geocoder = CLGeocoder()
@@ -45,13 +50,9 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
             if error == nil {
                 let firstLocation = placemarks?[0]
                 self.locationState = firstLocation?.administrativeArea ?? ""
-                completion(true)
-            } else {
-                completion(false)
-            }
+                //                completion(true)
+            } //else {
+            //  completion(false)
+            //}
         }
     }
-//    func getGeocode() -> self.locationState {
-//        
-//    }
-}
