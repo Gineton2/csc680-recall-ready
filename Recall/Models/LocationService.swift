@@ -42,7 +42,7 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func startGeocoding() { // completion handler was not working
         guard let location = location else {
-//            completion(false)
+            //            completion(false)
             return
         }
         let geocoder = CLGeocoder()
@@ -56,3 +56,4 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
             //}
         }
     }
+}

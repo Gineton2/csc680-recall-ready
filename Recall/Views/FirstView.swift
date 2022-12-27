@@ -79,7 +79,7 @@ struct FirstView: View {
                 .hidden()
                 
                 LocationButton(.shareMyCurrentLocation) {
-                    self.locationService.requestLocation()
+                    //self.locationService.requestLocation()
                     self.locationService.startGeocoding()
                     showProducts = true
                 }

@@ -16,7 +16,7 @@ struct Products: View {
         NavigationView {
             List(products, id: \.recall_number) { product in
                 NavigationLink (destination: ProductDetails(product: product)) {
-                    VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("Product: \n" + product.product_description.prefix(60) + "...")
                             .font(.headline)
                         Text("City: " + product.city)
