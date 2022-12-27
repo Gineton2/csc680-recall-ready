@@ -11,17 +11,13 @@ struct Products: View {
     // to make use of user's locationState
     @EnvironmentObject var locationService : LocationService
     @State private var products = [Product]()
-//   NavigationView {
-//        List(selection: $selection) {
-//            ForEach(provider.quakes) { quake in
-//                NavigationLink(destination: QuakeDetail(quake: quake)) {
-//                    QuakeRow(quake: quake)
+
     var body: some View {
         NavigationView {
             List(products, id: \.recall_number) { product in
                 NavigationLink (destination: ProductDetails(product: product)) {
                     VStack(alignment: .leading, spacing: 20) {
-                        Text("Product: " + product.product_description.prefix(60) + "...")
+                        Text("Product: \n" + product.product_description.prefix(60) + "...")
                             .font(.headline)
                         Text("City: " + product.city)
 //                       Text(product.product_description)

@@ -12,14 +12,15 @@ struct ProductDetails: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Product: " + product.product_description.prefix(60) + "...")
+            Text("Product: \n" + product.product_description.prefix(60) + "...")
                 .font(.headline)
             Text("City: " + product.city)
-            Text(product.product_description)
+            Text("Product Description:\n" + product.product_description)
                 .font(.headline)
-            Text(product.reason_for_recall)
+            Text("Reason for Recall:\n" + product.reason_for_recall)
                 .font(.headline)
         }
+        .padding()
     }
     
     struct ProductDetails_Previews: PreviewProvider {

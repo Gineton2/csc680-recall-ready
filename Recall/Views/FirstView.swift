@@ -18,6 +18,7 @@ struct FirstView: View {
     @State private var showProducts = false
     
     var body: some View {
+        // Navigation Stack requires iOS 16.
         NavigationStack() {
             VStack {
                 Image("Logo")
