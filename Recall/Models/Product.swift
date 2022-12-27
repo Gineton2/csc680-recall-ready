@@ -19,7 +19,7 @@ struct Product:Codable {
     var status: String
     
     // location properties
-    // TODO: maybe implement a ProductLocation struct
+    // TODO: maybe implement as var location: ProductLocation?
     var city: String
     var state: String
     var country: String
@@ -28,7 +28,6 @@ struct Product:Codable {
     var postal_code: String
     var distribution_pattern: String
     
-    // TODO: enum classification 1 (most danger) to 3 (least danger)
     var classification: String
     var product_type: String
     var event_id: String
@@ -39,7 +38,7 @@ struct Product:Codable {
     var product_quantity: String
     var reason_for_recall: String
     
-    // TODO: dates of Date type
+    //TODO: dates of Date type
     var recall_initiation_date: String
     var center_classification_date: String
     var report_date: String

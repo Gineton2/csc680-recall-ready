@@ -20,6 +20,9 @@ struct Products: View {
                         Text("Product: \n" + product.product_description.prefix(60) + "...")
                             .font(.headline)
                         Text("City: " + product.city)
+//                       Text(product.product_description)
+//                           .font(.headline)
+//                       Text(product.reason_for_recall)
                     }
                 }
             }
