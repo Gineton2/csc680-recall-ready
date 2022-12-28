@@ -19,36 +19,71 @@ struct FirstView: View {
     
     var body: some View {
         // Navigation Stack requires iOS 16.
-        NavigationStack() {
-            VStack {
-                Image("Logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 300, alignment: .center)
-                
-                Text("Recall Ready")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                
-                Text("\tRecall Ready provides up-to-date information on FDA food recalls in your region. \r\tStay informed! Keep you and your family safe from foodborne illness and other health risks.")
-                    .font(.callout)
-                    .padding([.trailing, .bottom, .leading], 40)
-                    .padding(.top, 5)
-                
-                
-//                NavigationLink(isActive: $showProducts, destination: Products().environmentObject(locationService)) {
-                LocationButton(.currentLocation){
-                    self.locationService.startGeocoding { _ in
-                        showProducts = true
+        if #available(iOS 16.0, *) {
+            NavigationStack() {
+                VStack {
+                    Image("Logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 300, alignment: .center)
+                    
+                    Text("Recall Ready")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    Text("\tRecall Ready provides up-to-date information on FDA food recalls in your region. \r\tStay informed! Keep you and your family safe from foodborne illness and other health risks.")
+                        .font(.callout)
+                        .padding([.trailing, .bottom, .leading], 40)
+                        .padding(.top, 5)
+                    
+                    LocationButton(.currentLocation){
+                        locationService.requestLocation()
+                        self.locationService.startGeocoding { _ in
+                            showProducts = true
+                        }
+                    }
+                    .symbolVariant(.fill)
+                    .labelStyle(.titleAndIcon)
+                    .cornerRadius(25.0)
+                    .foregroundColor(Color.white)
+                    .navigationDestination(isPresented: $showProducts){
+                        Products().environmentObject(locationService)
                     }
                 }
-//                }
-                .symbolVariant(.fill)
-                .labelStyle(.titleAndIcon)
-                .cornerRadius(25.0)
-                .foregroundColor(Color.white)
-                .navigationDestination(isPresented: $showProducts){
-                    Products().environmentObject(locationService)
+            }
+        } else {
+            // Fallback on earlier versions
+            NavigationView() {
+                VStack {
+                    Image("Logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 300, alignment: .center)
+                    
+                    Text("Recall Ready")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    Text("\tRecall Ready provides up-to-date information on FDA food recalls in your region. \r\tStay informed! Keep you and your family safe from foodborne illness and other health risks.")
+                        .font(.callout)
+                        .padding([.trailing, .bottom, .leading], 40)
+                        .padding(.top, 5)
+                    
+                    
+                NavigationLink(destination: Products().environmentObject(locationService), isActive: $showProducts) {
+                    EmptyView()
+                    }
+                .hidden()
+                    LocationButton(.currentLocation){
+                        locationService.requestLocation()
+                        self.locationService.startGeocoding { _ in
+                            showProducts = true
+                        }
+                    }
+                    .symbolVariant(.fill)
+                    .labelStyle(.titleAndIcon)
+                    .cornerRadius(25.0)
+                    .foregroundColor(Color.white)
                 }
             }
         }

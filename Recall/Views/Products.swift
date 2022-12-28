@@ -11,7 +11,7 @@ struct Products: View {
     // to make use of user's locationState
     @EnvironmentObject var locationService : LocationService
     @State private var products = [Product]()
-
+    
     var body: some View {
         NavigationView {
             List(products, id: \.recall_number) { product in
@@ -20,9 +20,6 @@ struct Products: View {
                         Text("Product: \n" + product.product_description.prefix(60) + "...")
                             .font(.headline)
                         Text("City: " + product.city)
-//                       Text(product.product_description)
-//                           .font(.headline)
-//                       Text(product.reason_for_recall)
                     }
                 }
             }
@@ -32,13 +29,13 @@ struct Products: View {
         }
     }
     func loadData() async {
-        let state = locationService.locationState
-        guard let url = URL(string: "https://api.fda.gov/food/enforcement.json?search=state:\(state)+AND+status:ongoing&limit=10&sort=report_date:dec") else
-        {
-            print("Invalid URL")
-            return
-        }
         do {
+            let state = locationService.locationState
+            guard let url = URL(string: "https://api.fda.gov/food/enforcement.json?search=state:\(state)+AND+status:ongoing&limit=10&sort=report_date:dec") else
+            {
+                print("Invalid URL")
+                return
+            }
             // use locationState in API Request
             let (data, _) = try await URLSession.shared.data(from: url)
             if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {

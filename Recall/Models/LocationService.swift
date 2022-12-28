@@ -21,23 +21,29 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     @Published var location: CLLocation?
     // default state is CA
-    @Published var locationState: String = "" //"CA"
+    @Published var locationState: String = "CA" //"CA"
     
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations.first
         location = locations.last
     }
     
+    func requestLocation() {
+        locationManager.requestLocation()
+    }
+    
     func startGeocoding(completion: @escaping (Bool) -> Void) {
+        requestLocation()
         guard let location = location else {
-            completion(false)
+//            completion(false)
             return
         }
         let geocoder = CLGeocoder()
@@ -47,11 +53,13 @@ class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
                 self.locationState = firstLocation?.administrativeArea ?? ""
                 completion(true)
             } else {
-                completion(false)
+//                completion(false)
+                return
             }
         }
     }
-//    func getGeocode() -> self.locationState {
-//        
-//    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        //Handle any errors here...
+        print (error)
+    }
 }
